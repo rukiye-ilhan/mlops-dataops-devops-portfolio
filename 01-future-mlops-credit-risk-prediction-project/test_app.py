@@ -6,7 +6,7 @@ client = TestClient(app)
 def test_home():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Credit Risk API is Live! Go to /docs for testing."}
+    assert response.json() == {"message": "MLOps API is running! Go to /docs to test the model."}
 
 def test_predict():
     # send fake data for testing

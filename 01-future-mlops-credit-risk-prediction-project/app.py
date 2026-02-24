@@ -57,7 +57,7 @@ def predict_loan_status(data: LoanApplication):
         'loan_intent_VENTURE'
     ]
     #Convert to JSON input into a Pandas DataFrame
-    df = pd.DataFrame([data.dict()])
+    df = pd.DataFrame([data.model_dump()])
 
     df = df[feature_order]
 
