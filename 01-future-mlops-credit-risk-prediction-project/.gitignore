@@ -1,0 +1,14 @@
+# Sanal Ortam (KESİNLİKLE GİTMEMELİ)
+ilhan/
+venv/
+env/
+
+# Python Derleme Dosyaları
+__pycache__/
+*.pyc
+
+# IDE Ayarları
+.vscode/
+.idea/
+
+# data/*.csv  <-- (Veri setin küçükse bu satırı sil veya başına # koy)
