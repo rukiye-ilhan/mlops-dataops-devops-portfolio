@@ -5,7 +5,7 @@ from pydantic import BaseModel
 
 #Load the train model
 #we load the frozen model from the hard drive into RAM
-model = joblib.load('C:/Users/user/Desktop/mlops-dataops-devops-portfolio/01-future-mlops-credit-risk-prediction-project/models/credit_risk_model.joblib')
+model = joblib.load('models/credit_risk_model.joblib')
 
 #Initialize the app
 app = FastAPI(title="Credit Risk ML API", version="1.0")
