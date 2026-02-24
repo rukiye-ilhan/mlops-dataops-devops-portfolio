@@ -1,11 +1,11 @@
-# 🏦 End-to-End Credit Risk Prediction System (MLOps Pipeline)
+#  End-to-End Credit Risk Prediction System (MLOps Pipeline)
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue)
 ![Scikit-Learn](https://img.shields.io/badge/Library-Scikit--Learn-orange)
 ![FastAPI](https://img.shields.io/badge/Framework-FastAPI-green)
 ![Status](https://img.shields.io/badge/Status-Production--Ready-brightgreen)
 
-## 📖 Project Overview
+##  Project Overview
 This project implements a complete **Machine Learning Pipeline** to predict loan defaults (Credit Risk). It covers the entire lifecycle from raw data processing to model deployment via a REST API.
 
 The goal is to help financial institutions minimize losses by accurately identifying high-risk loan applicants (Default: 1) versus safe applicants (Paid: 0).
