@@ -69,7 +69,10 @@ After rigorous testing with Stratified K-Fold and an unseen test set (20%), the 
 │
 ├── app.py                         # FastAPI application for serving
 ├── confusion_matrix.png
-|── eda_my_analysis_dolu.png            
+|── eda_my_analysis_dolu.png
+├── test_app.py
+├── train_witmlflow.py
+├── mlflow.db            
 └── README.md                      # Project documentation
 
 
@@ -116,8 +119,59 @@ curl -X 'POST' \
 
 Future Improvements
 Dockerization: Containerize the API for consistent deployment.
+## Docker Containerization (Production Ready)
 
-MLflow Integration: Add experiment tracking to log metrics and parameters automatically.
+To ensure reliability, scalability, and reproducibility, this project is fully containerized using Docker. This resolves the "it works on my machine" problem by encapsulating the entire runtime environment.
 
-CI/CD Pipeline: Automate testing and deployment using GitHub Actions.
+### The Tech Stack Architecture
+The application runs inside an isolated container with the following layered architecture:
+
+```mermaid
+graph TD;
+    Docker[Docker Container] --> Linux[Linux OS (Debian Slim)];
+    Linux --> Python[Python 3.11 Runtime];
+    Python --> FastAPI[FastAPI Server];
+    FastAPI --> Model[ML Model (Random Forest)];
+
+    docker build -t credit-risk-api .
+    docker run -p 80:80 credit-risk-api
+    Access the API:
+Go to http://localhost/docs to test the live prediction endpoint.
+
+## MLOps Integration & Automation
+
+This project goes beyond simple model training by implementing industry-standard MLOps practices to ensure reproducibility, scalability, and reliability.
+
+### Experiment Tracking with MLflow
+I integrated **MLflow** to manage the machine learning lifecycle. This allows for systematic tracking of every model iteration.
+* **Metric Logging:** Automatically records `Accuracy`, `Recall`, and `ROC-AUC` scores for every run.
+* **Parameter Tracking:** Logs hyperparameters like `n_estimators` and `max_depth` to identify the best-performing configuration.
+* **Artifact Storage:** Saves the trained model pipeline (`.joblib`) and visualization outputs like the **Confusion Matrix** directly within the MLflow dashboard.
+
+
+
+### CI/CD Pipeline (GitHub Actions)
+To ensure code quality and prevent deployment errors, a **CI/CD (Continuous Integration)** pipeline is implemented using **GitHub Actions**.
+* **Automated Testing:** Every time code is pushed to the repository, a virtual environment is created to run unit tests using `pytest`.
+* **Reliability:** The pipeline verifies that the FastAPI endpoints and model prediction logic are working correctly before allowing changes to the main branch.
+* **Quality Gate:** A "Green Tick"  on GitHub provides immediate feedback on the health of the application.
+
+
+
+### Advanced Project Architecture
+The project follows a layered architecture to ensure seamless operation:
+1. **Data & Preprocessing:** Handles missing value imputation and feature engineering.
+2. **MLflow Tracking:** Records every experiment for scientific accountability.
+3. **Containerization:** The entire environment is packaged via **Docker**.
+4. **Automation:** GitHub Actions manages the lifecycle of the code.
+
+---
+
+## How to View My Experiments
+
+To see the tracked experiments locally:
+1. Install requirements: `pip install -r requirements.txt`
+2. Run the training script: `python train_full_mlflow.py`
+3. Launch the MLflow UI: `mlflow ui`
+4. Open your browser and navigate to `http://127.0.0.1:5000`
 

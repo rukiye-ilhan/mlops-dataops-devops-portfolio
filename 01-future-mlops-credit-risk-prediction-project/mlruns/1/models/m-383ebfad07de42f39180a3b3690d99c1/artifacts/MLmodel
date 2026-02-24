@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/user/Desktop/mlops-dataops-devops-portfolio/01-future-mlops-credit-risk-prediction-project/mlruns/1/models/m-383ebfad07de42f39180a3b3690d99c1/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.9
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+mlflow_version: 3.10.0
+model_id: m-383ebfad07de42f39180a3b3690d99c1
+model_size_bytes: 40261130
+model_uuid: m-383ebfad07de42f39180a3b3690d99c1
+prompts: null
+run_id: 9607c3aacfc049c6b7b39aea38eba542
+utc_time_created: '2026-02-24 13:28:03.952291'
